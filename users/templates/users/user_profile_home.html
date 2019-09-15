@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block content_title %}
+    User
+{% endblock %}
+
+{% block content %}
+    <div class="username">
+        {{user_profile.nickname}}
+    </div>
+    <div class="avatar">
+        {% for i in avatar %}
+            <img src="{{ url_for('static', filename='img/avatars/' + i.name) }}" class="rounded-circle">
+        {% endfor %}
+    </div>
+    <div class="description">
+
+    </div>
+    <div class="works">
+
+    </div>
+    <form action="{{ url_for('edit_profile') }}">
+        <button class="btn btn-success" type="submit">Редактировать профиль</button>
+    </form>
+{% endblock %}

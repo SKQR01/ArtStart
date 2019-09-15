@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content_title %}
+<div class="title-content">
+    <h1>
+        {{ post.title }}
+        {% for t in tags %}
+        <a href=" {{ url_for('posts.tag_detail', slug = t.slug) }} ">
+            <span class="badge badge-warning">{{ t }}</span>
+        </a>
+        {% endfor %}
+
+    </h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-6 post-image-block">
+        {% for i in post.pictures %}
+
+        <img src="{{ url_for('static', filename='img/' +  i.name) }}" class="img-fluid post-image">
+
+        {% endfor %}
+    </div>
+    <div class="col-1"></div>
+
+    <div class="col-4">
+        <div class="jumbotron">
+            <div class="user-display d-flex">
+                {% for i in post.user %}
+                <h3 class="name">{{ i }}</h3>
+                {% endfor %}
+            </div>
+            <div class="date">
+                <h5>Publication date: {{post.createDate.strftime("%d.%m.%Y")}}</h5>
+            </div>
+            <h4>{{ post.body }}</h4>
+        </div>
+    </div>
+</div>
+<div id="response">
+    <span id="likeButton" class="badge badge-warning" type="submit">
+        <h3 id="h3">{{ post.likes }}</h3>
+    </span>
+</div>
+<div class="comments-block">
+    <form id="comment_form" enctype="multipart/form-data">
+        <button id="comment_button" class="btn btn-primary" type="submit" style="align-self: center;">
+            Оставить
+            комментарий
+        </button>
+        <textarea id="comment_text" cols="60" rows="3" style="align-self: center;"></textarea>
+    </form>
+    <div id="comments">
+        {% for i in post.comment %}
+        <div class="media">
+            <div id="comment" class="media-body d-flex mt-4">
+                {% for author in i.author %}
+                {% for image in author.avatar %}
+                <img src="{{ url_for('static', filename='img/avatars/' + image.name) }}" class="mr-3 rounded-circle user-comment-icon">
+                {% endfor %}
+                <div class="comment-body">
+                    <h5>{{ author }}</h5>
+                    {% endfor %}
+                    {{ i }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

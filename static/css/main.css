@@ -1,0 +1,91 @@
+body {
+  font-size: 15px;
+  background-color: #171717;
+  color: #efefef;
+}
+
+body .navbar {
+  border-bottom: 1px solid #333;
+  font-size: 20px;
+  background-color: #222327;
+}
+
+body .navbar .navbar-brand {
+  font-size: 25px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.card img {
+  border-radius: 0;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.card-columns {
+  -webkit-column-count: 4;
+          column-count: 4;
+  -webkit-column-gap: 0;
+          column-gap: 0;
+}
+
+.item {
+  height: 200px;
+}
+
+.post-image {
+  max-height: 700px;
+  -ms-flex-item-align: auto;
+      -ms-grid-row-align: auto;
+      align-self: auto;
+}
+
+.jumbotron {
+  height: 100%;
+  background-color: #333;
+  max-height: 500px;
+}
+
+.jumbotron .user-display .name {
+  margin: auto 10px;
+}
+
+.jumbotron .user-display .avat {
+  height: 100px;
+}
+
+.comments-block {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.comments-block .comments {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.likes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.likes button {
+  margin: auto 0;
+}
+
+.likes p {
+  margin: auto 5px;
+}
+
+.user-comment-icon {
+  width: 50px;
+}
+/*# sourceMappingURL=main.css.map */
